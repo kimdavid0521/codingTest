@@ -11,6 +11,6 @@
 
 def solution(s):
     if(len(s) == 4 or len(s) == 6):
-        return s.isdigit()
+        return s.isdigit()  ## isdigit()을 사용하면 문자열안에 숫자로만 이루어져있는지 확인 가능
     else:
         return False
