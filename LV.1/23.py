@@ -11,3 +11,12 @@
 def solution(phone_number):
     count = len(phone_number)
     return "*" * (count -4) + phone_number[-4:]
+
+
+# # 함수 호출 및 출력
+# print(solution("01012345678"))
+
+# def solution(phone_number):
+#     count = len(phone_number)
+#     return "*" * (count-4) + phone_number[4:0]
+print(solution("01012345678"))

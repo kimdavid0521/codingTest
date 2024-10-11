@@ -27,36 +27,73 @@
 # [[0,0,0,0,0],[0,0,1,0,3],[0,2,5,0,1],[4,2,4,4,2],[3,5,1,3,1]]	[1,5,3,5,1,2,1,4]	4
 
 
+
 def solution(board, moves):
-    # //n*n배열중 n숫자 구하기
-    N = len(board)
-    # //n*n배열 초기화 해주기
-    arr = [[0]*N for _ in range(N)]
     bucket = []
     score = 0
     
-    # //행과 열 교체
-    board = map(list, zip(*board))
-    
-    # //배열에 값 채우기
-    for i in range(N):
-        for j in range(N):
-            arr[i][j] = board[i][j]
-            
+    # 1. board에서 뽑은 인형을 bucket에 추가
     for i in moves:
-        i = i-1
-        for j in range(N):
-            if(arr[i][j] != 0):
-                doll = arr[i][j]
-                arr[i][j] = 0
-                if(bucket and bucket[-1] == doll):
-                    
-                    score = score + 2
-                    bucket.pop()
-                else:
-                    bucket.append(doll)
-                break
+        for j in range(len(board) - 1, -1, -1):  # 인덱스 범위 수정
+            if board[j][i - 1] != 0:  # board의 값이 0이 아닐 경우
+                bucket.append(board[j][i - 1])
+                board[j][i - 1] = 0  # 해당 위치를 0으로 변경
+                break  # 인형을 뽑은 후 반복 종료
+
+    # 2. bucket에서 중복된 인형 제거 및 점수 계산
+    i = 0
+    while i < len(bucket) - 1:
+        if bucket[i] == bucket[i + 1]:  # 중복된 인형 발견
+            score += 2  # 점수 증가
+            bucket.pop(i)  # 현재 인형 제거
+            bucket.pop(i)  # 다음 인형 제거
+            # 인덱스는 감소하지 않음
+        else:
+            i += 1  # 중복이 아닐 경우 인덱스 증가
+
     return score
+
+board = [[0,0,0,0,0],[0,0,1,0,3],[0,2,5,0,1],[4,2,4,4,2],[3,5,1,3,1]]
+moves = [1,5,3,5,1,2,1,4]
+print(solution(board, moves))
+
+
+
+
+
+
+
+
+# def solution(board, moves):
+#     # //n*n배열중 n숫자 구하기
+#     N = len(board)
+#     # //n*n배열 초기화 해주기
+#     arr = [[0]*N for _ in range(N)]
+#     bucket = []
+#     score = 0
+    
+#     # //행과 열 교체
+#     board = map(list, zip(*board))
+    
+#     # //배열에 값 채우기
+#     for i in range(N):
+#         for j in range(N):
+#             arr[i][j] = board[i][j]
+            
+#     for i in moves:
+#         i = i-1
+#         for j in range(N):
+#             if(arr[i][j] != 0):
+#                 doll = arr[i][j]
+#                 arr[i][j] = 0
+#                 if(bucket and bucket[-1] == doll):
+                    
+#                     score = score + 2
+#                     bucket.pop()
+#                 else:
+#                     bucket.append(doll)
+#                 break
+#     return score
 # 첫번째 풀이
 # 실패 사유: 배열이 비어있는게아니라 0으로 들어가있는건데 비어있다고 판단해버림
 # def solution(board, moves):

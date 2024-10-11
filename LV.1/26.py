@@ -13,7 +13,11 @@
 # *****
 # *****
 
-a, b = map(int, raw_input().strip().split(' '))
-star = "*" * a
-for i in range(b):
-    print(star)
+# a, b = map(int, raw_input().strip().split(' '))
+# star = "*" * a
+# for i in range(b):
+#     print(star)
+
+num1, num2 = map(int, input("입력:").split())  #만약 실수를 입력받아야한다면 map(float, input("입력").split())
+for i in range(num2):
+    print("*" * num1)

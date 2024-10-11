@@ -10,9 +10,18 @@
 
 # 루트를 씌운값을 int형으로 치환하여 소수점을 아예 없애주고 만약 소수점을 없앤것의 제곱이 원래수라면 그건 int형으로 치환하기전에도 int형이였던것이라 제곱근임
 # 그걸로 판별해줌
+# def solution(n):
+#     number = int(n**(0.5))
+#     if(number * number == n):
+#         return (number+1)**2
+#     else:
+#         return -1
+
 def solution(n):
-    number = int(n**(0.5))
-    if(number * number == n):
-        return (number+1)**2
+    num = int(n**(0.5))
+    if(num ** 2 == n):  # 만약 어떤 수에 루트를 씌워주면(**(0.5)를 해주면 어떤 값이 나오는데 만약 그 값의 제곱이 원래 수라면 그건 그것의 제곱근임
+        return (num + 1) ** 2
     else:
         return -1
+
+print(solution(121))

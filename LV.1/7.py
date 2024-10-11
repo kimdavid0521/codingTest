@@ -9,8 +9,17 @@
 # "a234"	false
 # "1234"	true
 
+# def solution(s):
+#     if(len(s) == 4 or len(s) == 6):
+#         return s.isdigit()  ## isdigit()을 사용하면 문자열안에 숫자로만 이루어져있는지 확인 가능
+#     else:
+#         return False
+
 def solution(s):
-    if(len(s) == 4 or len(s) == 6):
-        return s.isdigit()  ## isdigit()을 사용하면 문자열안에 숫자로만 이루어져있는지 확인 가능
+    count = len(s)
+    if(count == 4 or count == 6):
+        return s.isdigit()
     else:
-        return False
+        False
+
+print(solution("1234"))

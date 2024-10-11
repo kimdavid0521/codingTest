@@ -12,12 +12,29 @@
 # [2, 36, 1, 3]	1	[1, 2, 3, 36]
 # [3,2,6]	10	[-1]
 
+# def solution(arr, divisor):
+#     result = []
+#     for i in arr:
+#         if(i % divisor == 0):
+#             result.append(i)
+#     if(len(result) == 0):
+#             result.append(-1)    
+#     result.sort()
+#     return result
+
 def solution(arr, divisor):
     result = []
     for i in arr:
-        if(i % divisor == 0):
+        if (i % divisor == 0):
             result.append(i)
-    if(len(result) == 0):
-            result.append(-1)    
+    if (len(result) == 0):
+        result.append(-1)
+    # 오름차순으로 정렬
     result.sort()
+    # 만약 내림차순으로 정렬하려면 아래처럼
+    # result.sort(reverse=True)
     return result
+
+arr = [5, 9, 7, 10]
+divisor = 5
+print(solution(arr,divisor))

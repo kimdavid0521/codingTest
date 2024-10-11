@@ -19,5 +19,13 @@
 # 이렇게 함으로써, 정렬 기준을 문자열의 특정 인덱스에 있는 문자로 지정합니다.
 # 마지막으로 정렬된 리스트를 반환합니다.
 
-def solution(strings,n):
-    return sorted(sorted(strings), key=lambda x:x[n])
+# def solution(strings,n):
+#     return sorted(sorted(strings), key=lambda x:x[n])
+
+def solution(strings, n):
+    strings.sort(key=lambda word: word[n])
+    return strings
+
+strings = ["sun", "bed", "car"]
+n = 1
+print(solution(strings, n))

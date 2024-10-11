@@ -8,10 +8,20 @@
 # "abcde"	"c"
 # "qwer"	"we"
 
+# def solution(s):
+#     center = int(len(s)/2)
+#     if(len(s) % 2 == 0):
+#         word = s[center-1 : center+1]   #first:end는 first부터 end이전 요소까지 구하는거임(착각 ㄴㄴ)
+#     else: 
+#         word = s[center]
+#     return word
+
 def solution(s):
     center = int(len(s)/2)
     if(len(s) % 2 == 0):
-        word = s[center-1 : center+1]   #first:end는 first부터 end이전 요소까지 구하는거임(착각 ㄴㄴ)
-    else: 
+        word = s[center -1 : center +1]
+    else:
         word = s[center]
     return word
+
+print(solution("adfs"))

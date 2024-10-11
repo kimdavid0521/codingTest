@@ -8,17 +8,37 @@
 # s	return
 # "try hello world"	"TrY HeLlO WoRlD"
 
+# def solution(s):
+#     count = 0
+#     arr = []
+#     for i in s:
+#         if (i==' '):
+#             count = 0
+#             arr.append(' ')
+#         else:
+#             count = count + 1
+#             if (count % 2 == 1):
+#                 arr.append(i.upper())
+#             else:
+#                 arr.append(i.lower())
+#     return ''.join(arr)
+
+
 def solution(s):
     count = 0
     arr = []
     for i in s:
-        if (i==' '):
+        if(i == " "):
+            arr.append(" ")
             count = 0
-            arr.append(' ')
         else:
-            count = count + 1
-            if (count % 2 == 1):
-                arr.append(i.upper())
-            else:
+            if(count % 2 == 1):
                 arr.append(i.lower())
+                count = count + 1
+            else:
+                arr.append(i.upper())
+                count = count + 1
     return ''.join(arr)
+
+print(solution("try hello world"))
+        

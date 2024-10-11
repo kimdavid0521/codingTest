@@ -7,6 +7,12 @@
 # n	 return
 # 118372	873211
 
+# def solution(n):
+#     n = str(n)
+#     return int(''.join(sorted(n, reverse=True)))
+
 def solution(n):
-    n = str(n)
-    return int(''.join(sorted(n, reverse=True)))
+    num = str(n)
+    return int(''.join(sorted(num, reverse=True)))
+
+print(solution(118372))

@@ -8,11 +8,25 @@
 # 3	"수박수"
 # 4	"수박수박"
 
+# def solution(n):
+#     answer = []
+#     for i in range(n):
+#         if(i % 2 == 0):
+#             answer.append("수")
+#         else:
+#             answer.append("박")
+#     return ''.join(answer)
+
+
+
 def solution(n):
-    answer = []
+    arr = []
     for i in range(n):
-        if(i % 2 == 0):
-            answer.append("수")
+        if(i % 2==1):
+            arr.append("박")
         else:
-            answer.append("박")
-    return ''.join(answer)
+            arr.append("수")
+        
+    return ''.join(arr)
+
+print(solution(3))

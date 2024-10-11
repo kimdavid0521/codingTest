@@ -6,11 +6,21 @@
 # n 	return
 # 12345	[5,4,3,2,1]
 
+# def solution(n):
+#     n = str(n)
+#     count = len(n)
+#     answer = []
+#     for i in range(count):
+#         answer.append(int(n[count-1]))
+#         count = count -1
+#     return answer
+
 def solution(n):
-    n = str(n)
-    count = len(n)
-    answer = []
-    for i in range(count):
-        answer.append(int(n[count-1]))
-        count = count -1
-    return answer
+    arr = []
+    k = str(n)
+    for i in k:
+        arr.append(int(i))
+    arr.sort(reverse=True)
+    return arr
+
+print(solution(12345))

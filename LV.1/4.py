@@ -11,9 +11,14 @@
 # 3	3	3
 # 5	3	12
 
-def solution(a, b):
-    return sum(range(min(a,b) , max(a,b) + 1)) # range함수는 시작값부터 끝값 직전까지의 정수 범위를 생성. 예를 들어, range(1, 5)는 1, 2, 3, 4를 포함하지만 5는 포함하지 않습니다.
+# def solution(a, b):
+#     return sum(range(min(a,b) , max(a,b) + 1)) # range함수는 시작값부터 끝값 직전까지의 정수 범위를 생성. 예를 들어, range(1, 5)는 1, 2, 3, 4를 포함하지만 5는 포함하지 않습니다.
 
+
+def solution(a,b):
+    return sum(range(min(a,b), max(a,b) + 1))
+
+print(solution(3,5))
 
    
    

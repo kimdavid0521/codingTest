@@ -17,7 +17,17 @@
 
 # 'Kim'을 찾았을 때, 해당 인덱스 i를 사용하여 "김서방은 {}에 있다"라는 문자열을 생성합니다.
 # format() 메서드를 사용하여 {}에 인덱스 값을 삽입합니다.
+# def solution(seoul):
+#     for i, name in enumerate(seoul):
+#         if name == 'Kim':
+#             return "김서방은 {}에 있다".format(i)
+
+ 
 def solution(seoul):
-    for i, name in enumerate(seoul):
-        if name == 'Kim':
-            return "김서방은 {}에 있다".format(i)
+    count  = 0
+    for i in seoul:
+        if (i == "Kim"):
+            return "김서방은 " + str(count) + "에 있다"
+        count = count + 1
+      
+print(solution(["Jane", "Kim"]))

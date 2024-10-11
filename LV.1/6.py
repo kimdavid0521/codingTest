@@ -14,5 +14,11 @@
 # join() 메서드를 사용하여 정렬된 문자열 리스트를 하나의 문자열로 결합합니다.
 # join() 메서드는 문자열 리스트를 결합하여 하나의 문자열로 만들어 줍니다.
 # 여기서는 빈 문자열('')을 사용하여 각 문자 사이에 아무 문자도 삽입하지 않고 그냥 이어붙이도록 합니다.
+# def solution(s):
+#     return ''.join(sorted(s, reverse=True))
+
 def solution(s):
-    return ''.join(sorted(s, reverse=True))
+    arr = sorted(s, reverse=True) #s는 문자열이기에 s.sort로 하면 안되고 sorted(s, reverse=True라고 해야됨)
+    return ''.join(arr)
+
+print(solution("Zbcdefg"))

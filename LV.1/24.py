@@ -8,13 +8,32 @@
 # [[1,2],[2,3]]	[[3,4],[5,6]]	[[4,6],[7,9]]
 # [[1],[2]]	[[3],[4]]	[[4],[6]]
 
+# def solution(arr1, arr2):
+#     count1 = len(arr1)
+#     count2 = len(arr1[0])  
+#     answer = [[0] * count2 for i in range(count1)]  
+    
+#     for i in range(count1):
+#         for j in range(count2):
+#             answer[i][j] = arr1[i][j] + arr2[i][j]
+    
+#     return answer
+
+
+
 def solution(arr1, arr2):
-    count1 = len(arr1)
-    count2 = len(arr1[0])  
-    answer = [[0] * count2 for i in range(count1)]  
+    row = len(arr1[0])
+    col = len(arr1)
+    result = [[0] * row for _ in range(col)]
     
-    for i in range(count1):
-        for j in range(count2):
-            answer[i][j] = arr1[i][j] + arr2[i][j]
-    
-    return answer
+    if(row != len(arr2[0]) or col != len(arr2)):
+        return "두 행렬은 일치하지않습니다"
+    else:
+        for i in range(row):
+            for j in range(col):
+              result[i][j] = arr1[i][j] + arr2[i][j]
+    return result  
+
+arr1 = [[1,2],[2,3]]
+arr2 = [[3,4],[5,6]]
+print(solution(arr1, arr2))

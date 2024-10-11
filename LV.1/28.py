@@ -20,34 +20,73 @@
 # 풀이법은 패턴을 각각 만들어주어서 반복문을 돌려주었다 
 # 문제의 길이가 패턴수를 넘어가지않도록 패턴의 길이로 i의 값을 나눠줌
 
-def solution(answers):
 
-    pattern1 = [1,2,3,4,5]
-    pattern2 = [2,1,2,3,2,4,2,5]
-    pattern3 = [3,3,1,1,2,2,4,4,5,5]
-    arr = []
-    score1, score2, score3 = 0,0,0
+
+
+
+def solution(answer):
+    aPattern = [1,2,3,4,5]
+    bPattern = [2,1,2,3,2,4,2,5]
+    cPattern = [3,3,1,1,2,2,4,4,5,5]
+    aCount, bCount, cCount = 0, 0, 0
+    result = []
+
     
-    length = len(answers)
+    for i in range(len(answer)):
+        if(answer[i] == aPattern[i % len(aPattern)]):
+            aCount = aCount + 1
+        if(answer[i] == bPattern[i % len(bPattern)]):
+            bCount = bCount + 1
+        if(answer[i] == cPattern[i % len(cPattern)]):
+            cCount = cCount + 1
+
+    maxScore = max(aCount, bCount, cCount)
+    if(maxScore == aCount):
+        result.append(1)
+    if(maxScore == bCount):
+        result.append(2)
+    if(maxScore == cCount):
+        result.append(3)
+
+    return result
+
+print(solution([1,3,2,4,2]))
+        
+
+
+
+
+
+
+
+# def solution(answers):
+
+#     pattern1 = [1,2,3,4,5]
+#     pattern2 = [2,1,2,3,2,4,2,5]
+#     pattern3 = [3,3,1,1,2,2,4,4,5,5]
+#     arr = []
+#     score1, score2, score3 = 0,0,0
     
-    for i in range(length):
-        if (answers[i] == pattern1[i % len(pattern1)]):
-            score1 = score1 + 1
-        if (answers[i] == pattern2[i % len(pattern2)]):
-            score2 = score2 + 1
-        if (answers[i] == pattern3[i % len(pattern3)]):
-            score3 = score3 + 1
+#     length = len(answers)
     
-    maxScore = max(score1, score2, score3)
+#     for i in range(length):
+#         if (answers[i] == pattern1[i % len(pattern1)]):
+#             score1 = score1 + 1
+#         if (answers[i] == pattern2[i % len(pattern2)]):
+#             score2 = score2 + 1
+#         if (answers[i] == pattern3[i % len(pattern3)]):
+#             score3 = score3 + 1
     
-    if(maxScore == score1):
-        arr.append(1)
-    if(maxScore == score2):
-        arr.append(2)
-    if(maxScore == score3):
-        arr.append(3)
+#     maxScore = max(score1, score2, score3)
     
-    return arr
+#     if(maxScore == score1):
+#         arr.append(1)
+#     if(maxScore == score2):
+#         arr.append(2)
+#     if(maxScore == score3):
+#         arr.append(3)
+    
+#     return arr
         
             
     

@@ -25,20 +25,35 @@
 # 예제 #2
 # 3번 학생이 2번 학생이나 4번 학생에게 체육복을 빌려주면 학생 4명이 체육수업을 들을 수 있습니다.
 
+
 def solution(n, lost, reserve):
-    lost.sort()
-    reserve.sort()
-    for i in reserve[:]:
-        if i in lost:
-            reserve.remove(i)
-            lost.remove(i)
-            
     for i in reserve:
-        if i-1 in lost:
-            lost.remove(i-1)
-        elif i+1 in lost:
-            lost.remove(i+1)
-    return n - len(lost)
+        for j in lost:
+            if(i-1 == j or i+1 == j):
+                lost.remove(j)
+    count = len(lost)
+    return n-count
+
+n = 5
+lost = [2, 4]
+reserve = [3]
+
+print(solution(n,lost,reserve))
+
+# def solution(n, lost, reserve):
+#     lost.sort()
+#     reserve.sort()
+#     for i in reserve[:]:
+#         if i in lost:
+#             reserve.remove(i)
+#             lost.remove(i)
+            
+#     for i in reserve:
+#         if i-1 in lost:
+#             lost.remove(i-1)
+#         elif i+1 in lost:
+#             lost.remove(i+1)
+#     return n - len(lost)
 
 # 풀이:
 # 설명이 많이 모자랐던게 아쉬웠다 

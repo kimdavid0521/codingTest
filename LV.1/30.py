@@ -23,15 +23,46 @@
 # 4	[4,4,4,4,4]	[4,1,2,3]
 
 def solution(N, stages):
-    answer = []
-    ratio = {}
-    peopleCount = len(stages)
-    for i in range(1,N+1):
-        if(peopleCount == 0):
-            ratio[i] = 0
-        else:
-            ratio[i] = stages.count(i) / peopleCount
-            peopleCount = peopleCount - stages.count(i)
-    answer = sorted(ratio, key = lambda x : ratio[x], reverse = True)
+    ratio = []
+    count = 0
+    people = 0
+    failure = []
+    result = []
+    for i in range(1, N+1, 1):
+        for j in stages:
+            if(j >= i):
+                count = count + 1
+            if(j == i):
+                people = people + 1
+        ratio.append(people/count)
+        count = 0
+    # ratio1 = [1-r for r in ratio]
+    for i in range(len(ratio)):
+        failure.append((i+1, ratio[i]))
+
+    failure.sort(key=lambda x: -x[1])
+    result = [tuple[0] for tuple in failure]
+    return result
+
+N = 5
+stages = [2, 1, 2, 6, 2, 4, 3, 3]
+print(solution(N, stages))
+
+
+
+
+
+
+# def solution(N, stages):
+#     answer = []
+#     ratio = {}
+#     peopleCount = len(stages)
+#     for i in range(1,N+1):
+#         if(peopleCount == 0):
+#             ratio[i] = 0
+#         else:
+#             ratio[i] = stages.count(i) / peopleCount
+#             peopleCount = peopleCount - stages.count(i)
+#     answer = sorted(ratio, key = lambda x : ratio[x], reverse = True)
     
-    return answer
+#     return answer

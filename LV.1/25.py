@@ -10,8 +10,21 @@
 # 4	3	[4,8,12]
 # -4	2	[-4, -8]
 
+# def solution(x, n):
+#     arr = []
+#     for i in range(x, x * n + x, x):
+#         arr.append(i)
+#     return arr
+
 def solution(x, n):
     arr = []
-    for i in range(x, x * n + x, x):
-        arr.append(i)
+    num = x
+    for _ in range(n):
+        arr.append(num)
+        num = num + x
     return arr
+
+x = 4
+n = 3
+
+print(solution(x,n))

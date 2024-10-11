@@ -12,13 +12,23 @@
 # 풀이에서는 min() 함수를 사용하여서 배열의 가장 작은 값을 추출하였다
 # 그 후 remove() 함수를 사용하여서 배열에서 그 값을 지워주었다
 
+# def solution(arr):
+#     length = len(arr)
+#     if(length == 1 or 0):
+#         return -1
+#     else:
+#         num = min(arr)
+#         arr.remove(num)
+#         return arr
+    
 def solution(arr):
-    length = len(arr)
-    if(length == 1 or 0):
+    minNum = min(arr)
+    for i in arr:
+        if(minNum == i):
+            arr.remove(i)
+    if(len(arr) == 0):
         return -1
     else:
-        num = min(arr)
-        arr.remove(num)
         return arr
-    
 
+print(solution([4,3,2,1]))

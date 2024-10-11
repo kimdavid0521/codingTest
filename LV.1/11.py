@@ -13,16 +13,28 @@
 # "z"	1	"a"
 # "a B z"	4	"e F d"
 
-def solution(s, n):
-    answer = ''
-    for char in s:
-        if char.isupper():
-            # 대문자인 경우 밀기 후 Z를 넘어가는 경우 A부터 다시 시작하도록 처리
-            answer += chr((ord(char) - ord('A') + n) % 26 + ord('A'))
-        elif char.islower():
-            # 소문자인 경우 밀기 후 z를 넘어가는 경우 a부터 다시 시작하도록 처리
-            answer += chr((ord(char) - ord('a') + n) % 26 + ord('a'))
-        else:
-            # 공백인 경우 그대로 유지
-            answer += char
-    return answer
+# def solution(s, n):
+#     answer = ''
+#     for char in s:
+#         if char.isupper():
+#             # 대문자인 경우 밀기 후 Z를 넘어가는 경우 A부터 다시 시작하도록 처리
+#             answer += chr((ord(char) - ord('A') + n) % 26 + ord('A'))
+#         elif char.islower():
+#             # 소문자인 경우 밀기 후 z를 넘어가는 경우 a부터 다시 시작하도록 처리
+#             answer += chr((ord(char) - ord('a') + n) % 26 + ord('a'))
+#         else:
+#             # 공백인 경우 그대로 유지
+#             answer += char
+#     return answer
+
+
+
+def solution(s,n):
+    arr = []
+    for i in s:
+        arr.append(chr(ord(i)+n))
+    return ''.join(arr)
+
+s="z"
+n=1
+print(solution(s,n))

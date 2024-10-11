@@ -9,17 +9,40 @@
 # 3	12	[3, 12]
 # 2	5	[1, 10]
         
-import math
+# import math
+# def solution(n, m):
+#     answer = []
+#     # 최대공약수
+#     for i in range(min(n,m), 0, -1): 
+#         if n % i == 0 and m % i == 0:
+#             answer.append(i)
+#             break 
+#     # 최소공배수
+#     for i in range(max(n, m), n * m + 1):
+#         if i % n == 0 and i % m == 0:
+#             answer.append(i)
+#             break
+#     return answer
+
+# print(solution(3,4))
+
 def solution(n, m):
-    answer = []
-    # 최대공약수
-    for i in range(min(n,m), 0, -1): 
-        if n % i == 0 and m % i == 0:
-            answer.append(i)
-            break 
-    # 최소공배수
-    for i in range(max(n, m), n * m + 1):
-        if i % n == 0 and i % m == 0:
-            answer.append(i)
+    bigNum = max(n,m)
+    smallNum = min(n,m)
+    result = []
+    yaksu = 0
+    beasu = 0
+    for i in range(1, bigNum, 1):
+        if(n % i == 0 and m % i == 0):
+            yaksu = i
+    for i in range(smallNum , bigNum * smallNum, 1):
+        if(i % smallNum == 0 and i % bigNum == 0):
+            beasu = i
             break
-    return answer
+    result.append(yaksu)
+    result.append(beasu)
+    return result
+
+n = 3
+m = 12
+print(solution(n,m))

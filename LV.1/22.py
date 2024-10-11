@@ -11,13 +11,25 @@
 # 11	false
 # 13	false
 
+# def solution(x):
+#     arr = list(str(x))
+#     total = 0
+#     for i in arr:
+#         total = total + int(i)
+#     if(x%total == 0):
+#         return True
+#     else:
+#         return False
+        
 def solution(x):
-    arr = list(str(x))
-    total = 0
-    for i in arr:
-        total = total + int(i)
-    if(x%total == 0):
+    num = x
+    numSum = 0
+    while (x > 0):
+        numSum = numSum + (x % 10)
+        x = x/10
+    if (num % numSum == 0):
         return True
     else:
         return False
-        
+    
+print(solution(13))
